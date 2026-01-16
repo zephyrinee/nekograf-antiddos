@@ -13,7 +13,6 @@ public void Configure(IApplicationBuilder app)
     app.UseMiddleware<DDoSMiddleware>();
 }
 
-// FOR WEBSITE API
 const rateLimit = new Map();
 
 function checkRateLimit(ip, limit = 100, windowMs = 60000) {
@@ -37,7 +36,6 @@ function checkRateLimit(ip, limit = 100, windowMs = 60000) {
     return true;
 }
 
-// FOR EXPRESS.JS
 function ddosMiddleware(req, res, next) {
     const clientIP = req.ip || req.connection.remoteAddress;
     
