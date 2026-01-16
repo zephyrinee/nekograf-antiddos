@@ -76,7 +76,6 @@ public class RequestRateLimiter
         
         var requests = requestLog.GetOrAdd(ip, new List<DateTime>());
         
-        // Hapus request lama
         requests.RemoveAll(t => t < windowStart);
         
         if (requests.Count >= maxRequests)
